@@ -1,2 +1,0 @@
-# bin
-Overjamed bin ordner
