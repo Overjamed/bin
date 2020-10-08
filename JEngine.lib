@@ -1,0 +1,40 @@
+#lib
+#system
+
+
+#namespace Jengine() {
+  
+  ++void warning-BREAK() {
+    >send("ERROR CANT CONNECT TO SERVERS", TO:"overjamed.org/crashhandler")!<
+  }
+  ++void connect() {
+    >connect(TO:"overjamed.org/mrinu/SERVER/serv2")!<
+  }
+  ++void e-connect() {
+    warning-BREAK;
+  }
+#region
+  #if JENGINE_EDITOR.EditorApplication 
+   
+   #if Can.ConnectTo : "overjamed.org/mrinu/SERVER/serv2"
+    connect;
+   #else
+   
+    #if Can.ConnectTo : "overjamed.org/mrinu/SERVER/emergency-server"
+    
+      e-connect;
+    
+    #else
+    
+      warning-BREAK;
+    
+    #endif
+    
+   #endif
+    
+  #else
+  
+  #endif
+  
+#endregion
+}
